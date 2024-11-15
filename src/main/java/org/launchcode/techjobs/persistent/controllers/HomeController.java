@@ -54,6 +54,7 @@ public class HomeController {
     public String processAddJobForm(@ModelAttribute @Valid Job newJob,
                                        Errors errors, Model model, @RequestParam int employerId, @RequestParam List<Integer> skills) {
         Optional<Employer> dbEmployer = employerRepository.findById(employerId);
+    //    Iterable<Skill> dbSkills = skillRepository.findAllById(skills);
         Iterable<Skill> dbSkills = skillRepository.findAllById(skills);
         List<Skill> jobSkills = new ArrayList<>();
         for (Skill dbSkill : dbSkills) {
